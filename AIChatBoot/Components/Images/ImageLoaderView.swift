@@ -1,0 +1,37 @@
+//
+//  ImageLoaderView.swift
+//  AIChatBoot
+//
+//  Created by Dhiman Das on 07.05.25.
+//
+
+import SDWebImageSwiftUI
+import SwiftUI
+
+struct ImageLoaderView: View {
+    var urlString: String = Constants.randomImage
+    var resizingMode: ContentMode = .fill
+    var forceTransitionAnimation: Bool = false
+
+    var body: some View {
+        Rectangle()
+            .opacity(0.001)
+            .overlay(
+                WebImage(url: URL(string: urlString))
+                    .resizable()
+                    .indicator(.activity)
+                    .aspectRatio(contentMode: resizingMode)
+                    .allowsTightening(false)
+            )
+            .clipped()
+            .ifSatisfiedCondition(forceTransitionAnimation) { content in
+                content
+                    .drawingGroup()
+            }
+    }
+}
+
+#Preview {
+    ImageLoaderView()
+        .frame(width: 100, height: 200)
+}
