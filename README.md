@@ -69,4 +69,18 @@ It separates **UI, business logic, navigation, and data access** into independen
 ---
 
 ## 📂 Project Structure
+/Core
+/Builder
+/Router
+/Interactor
+/UIComponents
+/Modules
+/[FeatureName]
+/View
+/Presenter
+/Router
+/Interactor
+/Manager
+/Service
+/Models
 
